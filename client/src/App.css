@@ -1,0 +1,712 @@
+.error-banner {
+  background: #ffebe6;
+  color: var(--danger);
+  padding: 8px 16px;
+  margin: 0 24px 12px;
+  border-radius: 4px;
+}
+
+.boards-home {
+  padding: 32px 40px;
+  flex: 1;
+}
+
+.boards-home-header {
+  margin-bottom: 28px;
+}
+
+.boards-home-header h1 {
+  font-size: 28px;
+  letter-spacing: -0.3px;
+}
+
+.boards-home-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.board-tile {
+  position: relative;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px;
+  display: flex;
+  align-items: flex-end;
+  text-align: left;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.board-tile:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 16px rgba(9, 30, 66, 0.25);
+}
+
+.board-tile-title {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.board-tile-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  line-height: 1;
+}
+
+.board-tile:hover .board-tile-delete {
+  opacity: 0.85;
+}
+
+.board-tile-delete:hover {
+  opacity: 1 !important;
+}
+
+.board-tile-new.inline-add-trigger {
+  height: 100px;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.board-tile-new.inline-add-trigger:hover {
+  border-color: var(--accent);
+  background: rgba(9, 30, 66, 0.03);
+  color: var(--accent);
+}
+
+.board-tile-new.inline-add-form {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 12px;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.board-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.board-page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.board-page-header h1 {
+  font-size: 20px;
+}
+
+.back-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.board-status {
+  padding: 24px;
+  color: var(--text-muted);
+}
+
+.board-lists-row {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 24px 24px;
+  overflow-x: auto;
+}
+
+.board-lists-row::-webkit-scrollbar,
+.list-cards::-webkit-scrollbar {
+  height: 10px;
+  width: 8px;
+}
+
+.board-lists-row::-webkit-scrollbar-thumb,
+.list-cards::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+
+.board-lists-row::-webkit-scrollbar-track,
+.list-cards::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list-column {
+  flex: 0 0 260px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+
+.list-column-overlay {
+  box-shadow: 0 8px 20px rgba(9, 30, 66, 0.3);
+  rotate: 2deg;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  cursor: grab;
+  border-radius: 8px 8px 0 0;
+}
+
+.list-header:active {
+  cursor: grabbing;
+}
+
+.list-title {
+  font-weight: 600;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.list-card-count {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+  padding: 1px 6px;
+}
+
+.list-title-input {
+  flex: 1;
+  font-weight: 600;
+}
+
+.list-delete-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  opacity: 0.6;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.list-delete-btn:hover {
+  opacity: 1;
+  color: var(--danger);
+}
+
+.list-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 8px;
+  overflow-y: auto;
+  min-height: 4px;
+}
+
+.list-empty-placeholder {
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 12px 0;
+  margin: 0;
+}
+
+.card-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.card-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(9, 30, 66, 0.18);
+}
+
+.priority-accent-low {
+  border-left-color: #36b37e;
+}
+
+.priority-accent-medium {
+  border-left-color: #ffab00;
+}
+
+.priority-accent-high {
+  border-left-color: #de350b;
+}
+
+.card-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.card-label-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.priority-badge {
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.priority-low {
+  background: #e3fcef;
+  color: #006644;
+}
+
+.priority-medium {
+  background: #fffae6;
+  color: #974f0c;
+}
+
+.priority-high {
+  background: #ffebe6;
+  color: #bf2600;
+}
+
+.due-date-badge,
+.checklist-badge {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.due-date-badge.overdue {
+  background: #ffebe6;
+  border-color: #ffbdad;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.inline-add-trigger {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.inline-add-trigger:hover {
+  background: rgba(9, 30, 66, 0.08);
+  color: var(--text);
+}
+
+.add-list-form,
+.list-column:has(+ .add-list-form) {
+  flex: 0 0 260px;
+}
+
+.add-list-form.inline-add-trigger {
+  background: rgba(9, 30, 66, 0.04);
+  border: 1px solid transparent;
+}
+
+.add-list-form.inline-add-trigger:hover {
+  border-color: var(--border);
+}
+
+.inline-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+}
+
+.inline-add-form input {
+  width: 100%;
+}
+
+.inline-add-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.inline-add-actions button[type='submit'] {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  transition: background 0.15s ease;
+}
+
+.inline-add-actions button[type='submit']:hover {
+  background: var(--accent-hover);
+}
+
+.inline-add-actions button[type='button'] {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+}
+
+.add-card-form {
+  margin: 4px 8px 8px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 30, 66, 0.54);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  overflow-y: auto;
+  z-index: 100;
+  animation: fade-in 0.12s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  background: var(--surface);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 560px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 12px 32px rgba(9, 30, 66, 0.35);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: background 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.confirm-dialog {
+  position: relative;
+  background: var(--surface);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 380px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(9, 30, 66, 0.35);
+}
+
+.confirm-dialog h2 {
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.confirm-dialog p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.confirm-cancel-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: background 0.15s ease;
+}
+
+.confirm-cancel-btn:hover {
+  background: var(--bg);
+}
+
+.confirm-confirm-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: background 0.15s ease, filter 0.15s ease;
+}
+
+.confirm-confirm-btn:hover {
+  background: var(--accent-hover);
+}
+
+.confirm-confirm-btn.danger {
+  background: var(--danger);
+}
+
+.confirm-confirm-btn.danger:hover {
+  filter: brightness(0.85);
+}
+
+.modal-title-input {
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  padding: 4px 6px;
+  margin-right: 32px;
+}
+
+.modal-title-input:hover,
+.modal-title-input:focus {
+  border-color: var(--border);
+}
+
+.modal-title-input.invalid {
+  border-color: var(--danger);
+}
+
+.title-meta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -10px;
+  padding: 0 6px;
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 12px;
+  margin: 0;
+  margin-right: auto;
+}
+
+.char-counter {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.modal-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-row label {
+  width: 90px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.modal-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2px 0;
+}
+
+.modal-section label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.modal-section textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+.label-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.label-remove {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.label-remove:hover {
+  opacity: 1;
+}
+
+.label-add-form,
+.checklist-add-form {
+  display: flex;
+  gap: 8px;
+}
+
+.label-add-form input,
+.checklist-add-form input {
+  flex: 1;
+}
+
+.checklist-progress-bar {
+  height: 6px;
+  background: var(--bg);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.checklist-progress-fill {
+  height: 100%;
+  background: #36b37e;
+  transition: width 0.15s ease;
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checklist-text {
+  flex: 1;
+}
+
+.checklist-text.done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.checklist-remove {
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.checklist-remove:hover {
+  color: var(--danger);
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.save-card-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.save-card-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.save-card-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.delete-card-btn {
+  background: none;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.delete-card-btn:hover {
+  background: var(--danger);
+  color: white;
+}
