@@ -8,7 +8,9 @@ const cardsRouter = require('./routes/cards');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+const ALLOWED_ORIGINS = ['http://localhost:5173', 'https://taronmin.github.io'];
+
+app.use(cors({ origin: ALLOWED_ORIGINS }));
 app.use(express.json());
 
 app.get('/api/health', (req, res) => {

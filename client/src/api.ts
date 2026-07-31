@@ -1,7 +1,9 @@
 import type { Board, BoardDetail, Card, CardPatch, List } from './types';
 
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
+
 const request = async <T,>(path: string, options?: RequestInit): Promise<T> => {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     headers: { 'Content-Type': 'application/json' },
     ...options,
   });
